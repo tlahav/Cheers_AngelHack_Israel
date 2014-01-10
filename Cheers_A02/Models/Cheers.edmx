@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CheersModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CheersModelStoreContainer">
+          <EntitySet Name="Restaurants1" EntityType="CheersModel.Store.Restaurants1" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tables" EntityType="CheersModel.Store.Tables" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Restaurants1">
+          <Key>
+            <PropertyRef Name="RestId" />
+          </Key>
+          <Property Name="RestId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RestName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LogoImageURL" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Tables">
+          <Key>
+            <PropertyRef Name="TableId" />
+          </Key>
+          <Property Name="TableId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TableGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LocatedIn" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CheersModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CheersEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Restaurants1" EntityType="CheersModel.Restaurants1" />
+          <EntitySet Name="Tables" EntityType="CheersModel.Table" />
+        </EntityContainer>
+        <EntityType Name="Restaurants1">
+          <Key>
+            <PropertyRef Name="RestId" />
+          </Key>
+          <Property Name="RestId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RestName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LogoImageURL" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="TableId" />
+          </Key>
+          <Property Name="TableId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TableGUID" Type="Guid" Nullable="false" />
+          <Property Name="LocatedIn" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CheersModelStoreContainer" CdmEntityContainer="CheersEntities">
+          <EntitySetMapping Name="Restaurants1">
+            <EntityTypeMapping TypeName="CheersModel.Restaurants1">
+              <MappingFragment StoreEntitySet="Restaurants1">
+                <ScalarProperty Name="RestId" ColumnName="RestId" />
+                <ScalarProperty Name="RestName" ColumnName="RestName" />
+                <ScalarProperty Name="LogoImageURL" ColumnName="LogoImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="CheersModel.Table">
+              <MappingFragment StoreEntitySet="Tables">
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="TableGUID" ColumnName="TableGUID" />
+                <ScalarProperty Name="LocatedIn" ColumnName="LocatedIn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
